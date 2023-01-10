@@ -1,9 +1,9 @@
 import time
 
 import pytest
-from page.home_page import HomePage
-from page.login_page import LoginPage
-from page.modify_modal import Modify_page
+from pages.home_page import HomePage
+from pages.login_page import LoginPage
+from pages.modify_modal import Modify_page
 
 @pytest.mark.usefixtures("setup")
 class Test_Modify():

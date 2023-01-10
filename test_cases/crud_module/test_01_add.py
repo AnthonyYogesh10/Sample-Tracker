@@ -1,9 +1,9 @@
 import time
 
 import pytest
-from page.home_page import HomePage
-from page.login_page import LoginPage
-from page.add_model import Add_model
+from pages.home_page import HomePage
+from pages.login_page import LoginPage
+from pages.add_model import Add_model
 
 @pytest.mark.usefixtures("setup")
 class Test_Add():

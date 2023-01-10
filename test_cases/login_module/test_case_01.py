@@ -1,7 +1,7 @@
 import time
 import pytest
-from page.login_page import LoginPage
-from page.home_page import HomePage
+from pages.login_page import LoginPage
+from pages.home_page import HomePage
 @pytest.mark.usefixtures("setup")
 class TestCredential():
    def test_login(self):
