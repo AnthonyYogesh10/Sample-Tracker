@@ -1,9 +1,9 @@
 import time
 
 import pytest
-from Sample_tracker.page.home_page import HomePage
-from Sample_tracker.page.login_page import LoginPage
-from Sample_tracker.page.add_model import Add_model
+from page.home_page import HomePage
+from page.login_page import LoginPage
+from page.add_model import Add_model
 
 @pytest.mark.usefixtures("setup")
 class Test_Add():

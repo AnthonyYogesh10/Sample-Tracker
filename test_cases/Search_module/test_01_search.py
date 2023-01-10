@@ -1,8 +1,8 @@
 import time
 
 import pytest
-from Sample_tracker.page.home_page import HomePage
-from Sample_tracker.page.login_page import LoginPage
+from page.home_page import HomePage
+from page.login_page import LoginPage
 
 @pytest.mark.usefixtures("setup")
 class Test_Search():

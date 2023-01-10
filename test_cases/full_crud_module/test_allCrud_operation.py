@@ -2,11 +2,11 @@ import time
 
 import pytest
 
-from Sample_tracker.page.add_model import Add_model
-from Sample_tracker.page.delete_modal import Delete_page
-from Sample_tracker.page.home_page import HomePage
-from Sample_tracker.page.login_page import LoginPage
-from Sample_tracker.page.modify_modal import Modify_page
+from page.add_model import Add_model
+from page.delete_modal import Delete_page
+from page.home_page import HomePage
+from page.login_page import LoginPage
+from page.modify_modal import Modify_page
 
 
 @pytest.mark.usefixtures("setup")
