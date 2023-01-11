@@ -29,27 +29,27 @@ class Test_AllCrud():
           hp.add_button()
           time.sleep(3)
           add_model = Add_model(self.driver)
-          self.input_name = "new sample2"  # is same as for add model
+          self.input_name = "test1"  # is same as for add model
           add_model.name_input(self.input_name)  # data's should be unique and non redundant
           add_model.description_testbox("added for testing")
           add_model.bussiness_code_input("8838yo203")  # data's should be unique and non redundant
-          time.sleep(6)
+          time.sleep(3)
           add_model.submit_btn()
           time.sleep(5)
           add_model.add_toaster(self.input_name)
-          time.sleep(8)
+          time.sleep(6)
 
      def test_search(self):
          hp = HomePage(self.driver)
          hp.search_input("new sample2")
          time.sleep(3)
          hp.search_button()
-         time.sleep(8)
+         time.sleep(3)
 
      def test_modify(self):
          hp = HomePage(self.driver)
          hp.modify_btn()
-         time.sleep(3)
+         time.sleep(5)
          modify_page = Modify_page(self.driver)
          modify_page.name_input("22")
          modify_page.description_testbox("22")
@@ -58,14 +58,15 @@ class Test_AllCrud():
          modify_page.save_btn()
          time.sleep(6)
          modify_page.modify_toaster()
-         time.sleep(8)
+         time.sleep(6)
 
      def test_delete(self):
          hp = HomePage(self.driver)
          hp.delete_btn()
-         time.sleep(5)
+         time.sleep(3)
          dele_page = Delete_page(self.driver)
          dele_page.delete_confirm()
          time.sleep(5)
          dele_page.delete_toaster()
-         time.sleep(8)
+         time.sleep(6)
+
