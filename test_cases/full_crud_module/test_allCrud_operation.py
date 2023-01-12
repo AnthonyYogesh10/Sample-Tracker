@@ -25,11 +25,11 @@ class Test_AllCrud():
           hp.side_nav_admin_drdw("Categories")
           time.sleep(3)
           hp.under_categories("Sample Types")
-          time.sleep(3)
+          time.sleep(8)
           hp.add_button()
           time.sleep(3)
           add_model = Add_model(self.driver)
-          self.input_name = "test1"  # is same as for add model
+          self.input_name = "new sample2"  # is same as for add model
           add_model.name_input(self.input_name)  # data's should be unique and non redundant
           add_model.description_testbox("added for testing")
           add_model.bussiness_code_input("8838yo203")  # data's should be unique and non redundant
