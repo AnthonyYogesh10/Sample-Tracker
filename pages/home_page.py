@@ -45,12 +45,17 @@ class HomePage():
         delete.click()
 
     def search_input(self,search_value):
+        print(search_value)
         search = self.driver.find_element(By.XPATH,"//input[@id='quick-search']")
         search.send_keys(search_value)
 
     def search_button(self):
         search_btn = self.driver.find_element(By.XPATH,"//i[@class='fa fa-search']")
         search_btn.click()
+
+    def fetch_url(self):
+        new_url= self.driver.current_url
+        return new_url
 
 
 

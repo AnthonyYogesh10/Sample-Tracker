@@ -7,7 +7,7 @@ from pages.delete_modal import Delete_page
 from pages.home_page import HomePage
 from pages.login_page import LoginPage
 from pages.modify_modal import Modify_page
-
+from pytest_html import extras
 
 @pytest.mark.usefixtures("setup")
 class Test_AllCrud():
@@ -39,8 +39,11 @@ class Test_AllCrud():
           add_model.add_toaster(self.input_name)
           time.sleep(6)
 
+          def test_extra(extra):
+              extra.append(extras.text("some string"))
      def test_search(self):
          hp = HomePage(self.driver)
+         time.sleep(2)
          hp.search_input("new sample2")
          time.sleep(3)
          hp.search_button()

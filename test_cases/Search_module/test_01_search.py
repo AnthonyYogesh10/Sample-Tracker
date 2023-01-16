@@ -1,6 +1,9 @@
+import json
 import time
 
 import pytest
+import requests
+
 from pages.home_page import HomePage
 from pages.login_page import LoginPage
 
@@ -25,6 +28,16 @@ class Test_Search():
          time.sleep(3)
          hp.search_button()
          time.sleep(8)
+         new_url = hp.fetch_url()
+         print(new_url)
+         response = requests.get(new_url)
+         status_code = response.status_code
+         print(status_code)
+         data = response.json()
+         print(data)
+         time.sleep(2)
+
+
 
 
 
