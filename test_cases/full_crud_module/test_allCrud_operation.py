@@ -16,7 +16,7 @@ class Test_AllCrud():
           lp.username("robyn.hills@sematree.com")
           lp.password("*Welcome&Tech2022")
           lp.login_btn()
-          time.sleep(6)
+          time.sleep(7)
           hp = HomePage(self.driver)  # this is used to sent driver to page
           hp.menu_bar()
           time.sleep(3)
