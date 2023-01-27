@@ -22,3 +22,8 @@ class LoginPage():
   def click_login_btn(self):
       self.get_login_btn_field().click()
 
+  def login(self,username,password):
+      self.enter_username(username)
+      self.enter_password(password)
+      self.click_login_btn()
+

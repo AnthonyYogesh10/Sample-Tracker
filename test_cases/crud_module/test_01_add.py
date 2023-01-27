@@ -16,11 +16,7 @@ class Test_Add():
          hp = HomePage(self.driver)  # this is used to sent driver to page
          hp.click_menu_bar()
          time.sleep(3)
-         hp.select_side_nav("Administration")
-         time.sleep(3)
-         hp.select_nav_admin_drdw("Categories")
-         time.sleep(3)
-         hp.select_under_categories("Sample Types")
+         hp.navigate_to("Administration","Categories","Sample Types")
          time.sleep(3)
          hp.click_add_button()
          time.sleep(3)

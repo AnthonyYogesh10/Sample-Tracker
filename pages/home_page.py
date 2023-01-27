@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 
 
@@ -73,6 +75,13 @@ class HomePage():
 
     def click_search_button(self):
          self.get_search_button_field().click()
+
+    def navigate_to(self,navigate_to,administration,category):
+        self.select_side_nav(navigate_to)
+        time.sleep(3)
+        self.select_nav_admin_drdw(administration)
+        time.sleep(3)
+        self.select_under_categories(category)
 
     def fetch_url(self):
         new_url= self.driver.current_url

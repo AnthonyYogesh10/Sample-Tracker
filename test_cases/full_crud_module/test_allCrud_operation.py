@@ -11,23 +11,21 @@ from pytest_html import extras
 
 @pytest.mark.usefixtures("setup")
 class Test_AllCrud():
-     def test_add(self):
+     def test_login(self):
           lp = LoginPage(self.driver)
-          lp.enter_username("robyn.hills@sematree.com")
-          lp.enter_password("*Welcome&Tech2022")
-          lp.click_login_btn()
+          lp.login("robyn.hills@sematree.com","*Welcome&Tech2022")
           time.sleep(7)
+
+     def test_navigate(self):
           hp = HomePage(self.driver)  # this is used to sent driver to page
           hp.click_menu_bar()
           time.sleep(3)
-          hp.select_side_nav("Administration")
-          time.sleep(3)
-          hp.select_nav_admin_drdw("Categories")
-          time.sleep(3)
-          hp.select_under_categories("Sample Types")
+          hp.navigate_to("Administration","Categories","Sample Types")
           time.sleep(8)
           hp.click_add_button()
           time.sleep(3)
+
+     def test_add(self):
           add_model = Add_model(self.driver)
           self.input_name = "new sample2"  # is same as for add model
           add_model.add(self.input_name,"added for testing","8838yo203")
@@ -62,5 +60,6 @@ class Test_AllCrud():
          time.sleep(5)
          dele_page.delete_toaster()
          time.sleep(6)
+
      # def test_extra(extra):
      #     extra.append(extras.text("some string"))
