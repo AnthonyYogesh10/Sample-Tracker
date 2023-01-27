@@ -13,9 +13,9 @@ class Delete_page():
     def  get_delete_toaster_succ_field(self):
         return self.driver.find_element(By.XPATH,self.delete_toaster_succ_field)
 
-    def delete_confirm(self):
+    def click_delete_confirm(self):
         self.get_delete_confirm_field().click()
-    def delete_cancel(self):
+    def click_delete_cancel(self):
         self.get_delete_cancel_field().click()
 
     def delete_toaster(self):

@@ -38,40 +38,40 @@ class HomePage():
         return self.driver.find_element(By.XPATH,self.search_button_field)
 
 
-    def menu_bar(self):
+    def click_menu_bar(self):
         self.get_menubar_field().click()
 
-    def side_nav(self,nav_options):
+    def select_side_nav(self,nav_options):
         side_nav = self.get_side_nav_options_field()
         for option in side_nav:
             if option.text == nav_options:
                 option.click()
 
-    def side_nav_admin_drdw(self,dropdown_options):
+    def select_nav_admin_drdw(self,dropdown_options):
          administration_dropdown = self.get_side_nav_admin_drdw_field()
          for dropdown_option in administration_dropdown: #change it to utlities folder
              if dropdown_option.text == dropdown_options:
                  dropdown_option.click()
 
-    def under_categories(self,category_option):
+    def select_under_categories(self,category_option):
         category_dropdown = self.get_under_categories_field()
         for dropdown in category_dropdown: #change it to utlities folder
             if dropdown.text == category_option:
                 dropdown.click()
 
-    def add_button(self):
+    def click_add_button(self):
          self.get_add_button_field().click()
 
-    def modify_btn(self):
+    def click_modify_btn(self):
         self.get_modify_btn_field().click()
 
-    def delete_btn(self):
+    def click_delete_btn(self):
         self.get_delete_btn_field().click()
 
-    def search_input(self,search_value):
+    def enter_search_input(self,search_value):
          self.get_search_input_field().send_keys(search_value)
 
-    def search_button(self):
+    def click_search_button(self):
          self.get_search_button_field().click()
 
     def fetch_url(self):

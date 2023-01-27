@@ -13,12 +13,12 @@ class LoginPage():
       return self.driver.find_element(By.ID,self.password_field)
   def get_login_btn_field(self):
       return  self.driver.find_element(By.ID,self.login_btn_field)
-  def username(self,username_value):
+  def enter_username(self,username_value):
        self.get_username_field().send_keys(username_value)
 
-  def password(self,password_value):
+  def enter_password(self,password_value):
       self.get_password_field().send_keys(password_value)
 
-  def login_btn(self):
+  def click_login_btn(self):
       self.get_login_btn_field().click()
 

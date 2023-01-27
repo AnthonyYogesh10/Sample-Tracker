@@ -6,7 +6,7 @@ class Add_model():
         self.driver = driver
 
     name_input_field = "//input[@id='shipment-type-name']"
-    description_testbox_field = "//input[@id='shipment-type-name']"
+    description_testbox_field = "//textarea[@id='shipment-type-description']"
     bussiness_code_input_field = "//input[@id='businessCode']"
     item_status_inactive_field = "//input[@id='deliverable-item-status']"
     submit_btn_field = "//body[1]/div[1]/div[2]/div[1]/mdb-modal-container[1]/div[1]/div[1]/add-shipment-type-modal[1]/div[3]/button[1]"
@@ -34,41 +34,41 @@ class Add_model():
     def get_cancel_btn_field(self):
         return self.driver.find_element(By.XPATH, self.cancel_btn_field)
 
-    def name_input(self, input_value):
+    def enter_name_input(self, input_value):
         self.get_name_input_field().clear()
         self.get_name_input_field().send_keys(input_value)
 
-    def description_testbox(self, description_value):
+    def enter_description_testbox(self, description_value):
         self.get_description_field().clear()
         self.get_description_field().send_keys(description_value)
 
-    def bussiness_code_input(self, input_value):
+    def enter_bussiness_code_input(self, input_value):
         self.get_bussiness_code_input_field().clear()
         self.get_bussiness_code_input_field().send_keys(input_value)
 
-    def item_status_inactive(self):
+    def click_item_status_inactive(self):
         self.get_item_status_inactive_field().click()
 
-    def submit_btn(self):
+    def click_submit_btn(self):
         self.get_submit_btn_field().click()
 
-    def cancel_btn(self):
+    def click_cancel_btn(self):
         self.get_cancel_btn_field().click()
 
-        def add_toaster(self, input_name):
-            success_value = self.get_add_toaster_field().text
-            # print(success_value)
-            s1 = input_name
-            s2 = " Is Added"
-            s3 = s1 + s2
-            print(s3)
-            # print(success_value)
-            # to verify the heading is equal to input value
-            heading = self.driver.find_element(By.XPATH, "//span[normalize-space()='new sample2']")
-            heading_text = heading.text
-            if success_value == s3 and heading_text == input_name:
-                print("testcase add passed")
-            else:
+    def add_toaster(self, input_name):
+        success_value = self.get_add_toaster_field().text
+        # print(success_value)
+        s1 = input_name
+        s2 = " Is Added"
+        s3 = s1 + s2
+        print(s3)
+        # print(success_value)
+        # to verify the heading is equal to input value
+        heading = self.driver.find_element(By.XPATH, "//span[normalize-space()='new sample2']")
+        heading_text = heading.text
+        if success_value == s3 and heading_text == input_name:
+            print("testcase add passed")
+        else:
                 assert "testcase add failed"
 
 

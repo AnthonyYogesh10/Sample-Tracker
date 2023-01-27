@@ -27,22 +27,22 @@ class Modify_page():
     def get_modify_toaster_field(self):
         return self.driver.find_element(By.XPATH,self.modify_toaster_field)
 
-    def name_input(self,input_value):
+    def enter_name_input(self,input_value):
         self.get_name_input_field().send_keys(input_value)
 
-    def description_testbox(self,description_value):
+    def enter_description_testbox(self,description_value):
         self.get_description_testbox_field().send_keys(description_value)
 
-    def bussiness_code_input(self,input_value):
+    def enter_bussiness_code_input(self,input_value):
         self.get_bussiness_code_input_field().send_keys(input_value)
 
-    def item_status_inactive(self):
+    def click_item_status_inactive(self):
         self.get_item_status_inactive_field().click()
 
-    def save_btn(self):
+    def click_save_btn(self):
         self.get_save_btn_field().click()
 
-    def cancel_btn(self):
+    def click_cancel_btn(self):
        self.get_cancel_btn_field().click()
 
     def modify_toaster(self,):
