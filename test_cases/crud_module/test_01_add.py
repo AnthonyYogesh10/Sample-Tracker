@@ -25,12 +25,8 @@ class Test_Add():
          hp.click_add_button()
          time.sleep(3)
          add_model = Add_model(self.driver)
-         self.input_name = "new sample2" # is same as for add model
-         add_model.enter_name_input(self.input_name) #data's should be unique and non redundant
-         add_model.enter_description_testbox("added for testing")
-         add_model.enter_bussiness_code_input("8838yo203")#data's should be unique and non redundant
-         time.sleep(6)
-         add_model.click_submit_btn()
+         self.input_name = "new sample_add" # is same as for add model
+         add_model.add(self.input_name,"added for test","8838yo205")
          time.sleep(5)
          add_model.add_toaster(self.input_name)
          time.sleep(10)

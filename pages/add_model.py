@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 
 
@@ -71,6 +73,12 @@ class Add_model():
         else:
                 assert "testcase add failed"
 
+    def add(self,name,description,bussiness_code):
 
+        self.enter_name_input(name)
+        self.enter_description_testbox(description)
+        self.enter_bussiness_code_input(bussiness_code)
+        time.sleep(3)
+        self.click_submit_btn()
 
 

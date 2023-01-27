@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 
 class Modify_page():
@@ -54,3 +56,9 @@ class Modify_page():
         else:
             print("testcase modify failed")
 
+    def modify(self,name,description,bussiness_code):
+        self.enter_name_input(name)
+        self.enter_description_testbox(description)
+        self.enter_bussiness_code_input(bussiness_code)
+        time.sleep(3)
+        self.click_save_btn()
