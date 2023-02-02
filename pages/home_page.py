@@ -1,9 +1,10 @@
 import time
 
 from selenium.webdriver.common.by import By
-
+from utilities.utilities import utils
 
 class HomePage():
+    log = utils().custom_logger(mode='a')
     def __init__(self,driver):
         self.driver = driver
    #Locators (it is used to change url easily and essy to maintain)
@@ -42,40 +43,43 @@ class HomePage():
 
     def click_menu_bar(self):
         self.get_menubar_field().click()
+        self.log.info("Click on menubar")
 
     def select_side_nav(self,nav_options):
         side_nav = self.get_side_nav_options_field()
         for option in side_nav:
             if option.text == nav_options:
                 option.click()
-
+                self.log.info("Click on side_nav")
     def select_nav_admin_drdw(self,dropdown_options):
          administration_dropdown = self.get_side_nav_admin_drdw_field()
          for dropdown_option in administration_dropdown: #change it to utlities folder
              if dropdown_option.text == dropdown_options:
                  dropdown_option.click()
-
+                 self.log.info("Click on administration")
     def select_under_categories(self,category_option):
         category_dropdown = self.get_under_categories_field()
         for dropdown in category_dropdown: #change it to utlities folder
             if dropdown.text == category_option:
                 dropdown.click()
+                self.log.info("Click on category")
 
     def click_add_button(self):
          self.get_add_button_field().click()
-
+         self.log.info("Click on add button")
     def click_modify_btn(self):
         self.get_modify_btn_field().click()
-
+        self.log.info("Click on modify")
     def click_delete_btn(self):
         self.get_delete_btn_field().click()
+        self.log.info("Click on delete button")
 
     def enter_search_input(self,search_value):
          self.get_search_input_field().send_keys(search_value)
-
+         self.log.info("Assign "+ search_value +' into search input')
     def click_search_button(self):
          self.get_search_button_field().click()
-
+         self.log.info("Click on search button")
     def navigate_to(self,navigate_to,administration,category):
         self.select_side_nav(navigate_to)
         time.sleep(3)
@@ -91,4 +95,3 @@ class HomePage():
         datas = self.driver.find_elements(By.XPATH,"//div[@id='mid-list']/a")
         lenth_of_data = len(datas)
         # for data in datas:
-

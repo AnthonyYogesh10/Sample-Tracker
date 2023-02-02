@@ -19,14 +19,19 @@ def setup(request):
  yield
  driver.close()
 
- def pytest_html_results_table_header(cells):
-     # del cells[1]
-     # del cells[2]
-     cells.insert(0, html.th("S.no"))
-     cells.insert(1, html.th("Action"))
-     cells.insert(2, html.th("Expected output"))
-     cells.insert(3, html.th("Actual output"))
-     cells.pop()
+ # def pytest_html_results_table_header(cells):
+ #     # del cells[1]
+ #     # del cells[2]
+ #     cells.insert(0, html.th("S.no"))
+ #     cells.insert(1, html.th("Action"))
+ #     cells.insert(2, html.th("Expected output"))
+ #     cells.insert(3, html.th("Actual output"))
+ #     cells.pop()
+
+
+def test_extra(extra):
+    extra.append(extras.text("some string"))
+
 
 # @pytest.hookimpl(hookwrapper=True)
 # def pytest_runtest_makereport(item):
@@ -51,6 +56,7 @@ def setup(request):
 #             if file_name:
 #              extra.append(pytest_html.extras.html(html))
 #         report.extra = extra
+
 
 def pytest_html_report_title(report):
     report.title = "Truetesta Sample Tracker Report"

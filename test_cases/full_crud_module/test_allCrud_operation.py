@@ -61,5 +61,3 @@ class Test_AllCrud():
          self.dele_modal.delete_toaster()
          time.sleep(6)
 
-     # def test_extra(extra):
-     #     extra.append(extras.text("some string"))

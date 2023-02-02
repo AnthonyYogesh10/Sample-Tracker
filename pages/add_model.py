@@ -1,9 +1,10 @@
 import time
 
 from selenium.webdriver.common.by import By
-
+from utilities.utilities import utils
 
 class Add_model():
+    log = utils().custom_logger(mode='a')
     def __init__(self, driver):
         self.driver = driver
 
@@ -39,23 +40,29 @@ class Add_model():
     def enter_name_input(self, input_value):
         self.get_name_input_field().clear()
         self.get_name_input_field().send_keys(input_value)
+        self.log.info('Assign ' + input_value + ' into name')
 
     def enter_description_testbox(self, description_value):
         self.get_description_field().clear()
         self.get_description_field().send_keys(description_value)
+        self.log.info('Assign ' + description_value + ' into description')
 
     def enter_bussiness_code_input(self, input_value):
         self.get_bussiness_code_input_field().clear()
         self.get_bussiness_code_input_field().send_keys(input_value)
+        self.log.info('Assign ' + input_value + ' into bussiness code')
 
     def click_item_status_inactive(self):
         self.get_item_status_inactive_field().click()
+        self.log.info("Click on status button")
 
     def click_submit_btn(self):
         self.get_submit_btn_field().click()
+        self.log.info("Click on submit button")
 
     def click_cancel_btn(self):
         self.get_cancel_btn_field().click()
+        self.log.info("Click on cancel button")
 
     def add_toaster(self, input_name):
         success_value = self.get_add_toaster_field().text
@@ -69,9 +76,10 @@ class Add_model():
         heading = self.driver.find_element(By.XPATH, "//span[normalize-space()='new sample2']")
         heading_text = heading.text
         if success_value == s3 and heading_text == input_name:
-            print("testcase add passed")
+            self.log.info("testcase add passed")
         else:
-                assert "testcase add failed"
+            assert self.log.info("testcase add failed")
+
 
     def add(self,name,description,bussiness_code):
 

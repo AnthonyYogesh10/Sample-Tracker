@@ -1,8 +1,9 @@
 import time
 
 from selenium.webdriver.common.by import By
-
+from utilities.utilities import utils
 class Modify_page():
+    log = utils().custom_logger(mode='a')
     def __init__(self,driver):
         self.driver = driver
 
@@ -31,30 +32,37 @@ class Modify_page():
 
     def enter_name_input(self,input_value):
         self.get_name_input_field().send_keys(input_value)
+        self.log.info('Assign ' + input_value + ' into name')
 
     def enter_description_testbox(self,description_value):
         self.get_description_testbox_field().send_keys(description_value)
+        self.log.info('Assign ' + description_value + ' into description')
 
     def enter_bussiness_code_input(self,input_value):
         self.get_bussiness_code_input_field().send_keys(input_value)
+        self.log.info('Assign ' + input_value + ' into bussiness code')
 
     def click_item_status_inactive(self):
         self.get_item_status_inactive_field().click()
+        self.log.info("Click on status button")
 
     def click_save_btn(self):
         self.get_save_btn_field().click()
+        self.log.info("Click on save button")
 
     def click_cancel_btn(self):
        self.get_cancel_btn_field().click()
+       self.log.info("Click on cancel button")
 
     def modify_toaster(self,):
         toaster = self.get_modify_toaster_field()
         toaster_text = toaster.text
         print(toaster_text)
         if toaster_text == "Success":
-            print("testcase modify passed")
+            self.log.info("testcase modify passed")
+
         else:
-            print("testcase modify failed")
+            self.log.info("testcase modify failed")
 
     def modify(self,name,description,bussiness_code):
         self.enter_name_input(name)
