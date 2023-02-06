@@ -1,2 +1,0 @@
-Success
-testcase delete passed

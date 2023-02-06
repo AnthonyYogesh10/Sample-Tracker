@@ -7,9 +7,9 @@ from pages.delete_modal import Delete_page
 from pages.home_page import HomePage
 from pages.login_page import LoginPage
 from pages.modify_modal import Modify_page
-from pytest_html import extras
-
+from ddt2 import ddt, data, unpack
 @pytest.mark.usefixtures("setup")
+# @ddt
 class Test_AllCrud():
      @pytest.fixture(autouse=True)
      def class_setup(self):
@@ -26,17 +26,24 @@ class Test_AllCrud():
      def test_navigate(self):
           self.hp.click_menu_bar()
           time.sleep(3)
-          self.hp.navigate_to("Administration","Categories","Sample Types")
+          self.hp.navigate_to("Administration", "Categories", "Sample Types")
           time.sleep(8)
           self.hp.click_add_button()
           time.sleep(3)
-
+     # @data(("new sample2", "added for testing", "8838yo203"))
+     # @unpack #for data driven
+     # def test_add(self, name, desc, buss_code):
+     #      self.input_name = name  # is same as for add model
+     #      self.add_model.add(self.input_name, desc, buss_code)
+     #      time.sleep(5)
+     #      self.add_model.add_toaster(self.input_name)
+     #      time.sleep(6)
      def test_add(self):
-          self.input_name = "new sample2"  # is same as for add model
-          self.add_model.add(self.input_name,"added for testing","8838yo203")
-          time.sleep(5)
-          self.add_model.add_toaster(self.input_name)
-          time.sleep(6)
+         self.input_name = "new sample2"  # is same as for add model
+         self.add_model.add(self.input_name, "added for testing", "8838yo203")
+         time.sleep(5)
+         self.add_model.add_toaster(self.input_name)
+         time.sleep(6)
 
      def test_search(self):
          time.sleep(2)
