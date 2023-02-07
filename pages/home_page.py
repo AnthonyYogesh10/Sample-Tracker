@@ -44,6 +44,7 @@ class HomePage():
     def click_menu_bar(self):
         self.get_menubar_field().click()
         self.log.info("Click on menubar")
+        time.sleep(3)
 
     def select_side_nav(self,nav_options):
         side_nav = self.get_side_nav_options_field()
@@ -67,25 +68,34 @@ class HomePage():
     def click_add_button(self):
          self.get_add_button_field().click()
          self.log.info("Click on add button")
+         time.sleep(3)
+
     def click_modify_btn(self):
         self.get_modify_btn_field().click()
         self.log.info("Click on modify")
+        time.sleep(5)
     def click_delete_btn(self):
         self.get_delete_btn_field().click()
         self.log.info("Click on delete button")
+        time.sleep(3)
 
     def enter_search_input(self,search_value):
          self.get_search_input_field().send_keys(search_value)
          self.log.info("Assign "+ search_value +' into search input')
+         time.sleep(3)
+
     def click_search_button(self):
          self.get_search_button_field().click()
          self.log.info("Click on search button")
+         time.sleep(3)
+
     def navigate_to(self,navigate_to,administration,category):
         self.select_side_nav(navigate_to)
         time.sleep(3)
         self.select_nav_admin_drdw(administration)
         time.sleep(3)
         self.select_under_categories(category)
+        time.sleep(3)
 
     def fetch_url(self):
         new_url= self.driver.current_url

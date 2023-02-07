@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 from utilities.utilities import utils
 
@@ -31,4 +33,5 @@ class LoginPage():
       self.enter_username(username)
       self.enter_password(password)
       self.click_login_btn()
+      time.sleep(7)
 

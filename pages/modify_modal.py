@@ -54,7 +54,7 @@ class Modify_page():
        self.get_cancel_btn_field().click()
        self.log.info("Click on cancel button")
 
-    def modify_toaster(self,):
+    def modify_toaster(self):
         toaster = self.get_modify_toaster_field()
         toaster_text = toaster.text
         print(toaster_text)
@@ -63,10 +63,11 @@ class Modify_page():
 
         else:
             self.log.info("testcase modify failed")
-
+    time.sleep(6)
     def modify(self,name,description,bussiness_code):
         self.enter_name_input(name)
         self.enter_description_testbox(description)
         self.enter_bussiness_code_input(bussiness_code)
         time.sleep(3)
         self.click_save_btn()
+        time.sleep(3)

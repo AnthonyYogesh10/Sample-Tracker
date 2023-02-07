@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 from utilities.utilities import utils
 class Delete_page():
@@ -17,6 +19,7 @@ class Delete_page():
     def click_delete_confirm(self):
         self.get_delete_confirm_field().click()
         self.log.info("Click on confirm button")
+        time.sleep(5)
     def click_delete_cancel(self):
         self.get_delete_cancel_field().click()
         self.log.info("Click on cancel button")
@@ -29,3 +32,4 @@ class Delete_page():
             self.log.info("testcase delete passed")
         else:
             self.log.info("testcase delete failed")
+    time.sleep(6)

@@ -5,7 +5,10 @@ import pytest
 from py.xml import html
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.wait import WebDriverWait
+
 from pytest_html import extras
+
 
 @pytest.fixture(scope="class")
 def setup(request):
@@ -14,6 +17,7 @@ def setup(request):
  driver = webdriver.Chrome(service=serv_obj)
  driver.get("https://intertek-dev.trutesta.io/trusamples.mdb5/samples/cf5c0b49-6f07-4a93-b379-dba01ccde2db/sample-details-tab")
  driver.maximize_window()
+ wait = WebDriverWait(driver,10)
  time.sleep(6)
  request.cls.driver = driver
  yield

@@ -80,6 +80,7 @@ class Add_model():
         else:
             assert self.log.info("testcase add failed")
 
+    time.sleep(6)
 
     def add(self,name,description,bussiness_code):
 
@@ -88,5 +89,7 @@ class Add_model():
         self.enter_bussiness_code_input(bussiness_code)
         time.sleep(3)
         self.click_submit_btn()
+        time.sleep(5)
+
 
 
