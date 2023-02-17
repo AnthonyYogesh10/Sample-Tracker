@@ -30,17 +30,20 @@ class Modify_page():
     def get_modify_toaster_field(self):
         return self.driver.find_element(By.XPATH,self.modify_toaster_field)
 
-    def enter_name_input(self,input_value):
-        self.get_name_input_field().send_keys(input_value)
-        self.log.info('Assign ' + input_value + ' into name')
+    def enter_name_input(self,name_value):
+        self.get_name_input_field().clear()
+        self.get_name_input_field().send_keys(name_value)
+        self.log.info('Assign ' + name_value + ' into name')
 
     def enter_description_testbox(self,description_value):
+        self.get_description_testbox_field().clear()
         self.get_description_testbox_field().send_keys(description_value)
         self.log.info('Assign ' + description_value + ' into description')
 
-    def enter_bussiness_code_input(self,input_value):
-        self.get_bussiness_code_input_field().send_keys(input_value)
-        self.log.info('Assign ' + input_value + ' into bussiness code')
+    def enter_bussiness_code_input(self,buss_code_value):
+        self.get_bussiness_code_input_field().clear()
+        self.get_bussiness_code_input_field().send_keys(buss_code_value)
+        self.log.info('Assign ' + buss_code_value + ' into bussiness code')
 
     def click_item_status_inactive(self):
         self.get_item_status_inactive_field().click()

@@ -66,9 +66,9 @@ class HomePage():
                 self.log.info("Click on category")
 
     def click_add_button(self):
-         self.get_add_button_field().click()
-         self.log.info("Click on add button")
-         time.sleep(3)
+             self.get_add_button_field().click()
+             self.log.info("Click on add button")
+             time.sleep(3)
 
     def click_modify_btn(self):
         self.get_modify_btn_field().click()
@@ -97,11 +97,12 @@ class HomePage():
         self.select_under_categories(category)
         time.sleep(3)
 
-    def fetch_url(self):
-        new_url= self.driver.current_url
-        return new_url
-
-    def data_of_sample_type(self):
-        datas = self.driver.find_elements(By.XPATH,"//div[@id='mid-list']/a")
-        lenth_of_data = len(datas)
+    #
+    # def fetch_url(self):
+    #     new_url= self.driver.current_url
+    #     return new_url
+    #
+    # def data_of_sample_type(self):
+    #     datas = self.driver.find_elements(By.XPATH,"//div[@id='mid-list']/a")
+    #     lenth_of_data = len(datas)
         # for data in datas:

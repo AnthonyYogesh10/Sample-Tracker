@@ -1,30 +1,39 @@
 import time
+import unittest
 
+import softest
+from ddt import ddt,data,file_data,unpack
 import pytest
+
 from pages.home_page import HomePage
 from pages.login_page import LoginPage
 from pages.add_model import Add_model
+from utilities.utilities import utils
 
+ut = utils()
 @pytest.mark.usefixtures("setup")
-class Test_Add():
-    def test_add(self):
-         lp = LoginPage(self.driver)
-         lp.enter_username("robyn.hills@sematree.com")
-         lp.enter_password("*Welcome&Tech2022")
-         lp.click_login_btn()
-         time.sleep(6)
-         hp = HomePage(self.driver)  # this is used to sent driver to page
-         hp.click_menu_bar()
-         time.sleep(3)
-         hp.navigate_to("Administration","Categories","Sample Types")
-         time.sleep(3)
-         hp.click_add_button()
-         time.sleep(3)
-         add_model = Add_model(self.driver)
-         self.input_name = "new sample_add" # is same as for add model
-         add_model.add(self.input_name,"added for test","8838yo205")
-         time.sleep(5)
-         add_model.add_toaster(self.input_name)
-         time.sleep(10)
+@ddt
+class Test_Add(unittest.TestCase):
 
+    @pytest.fixture(autouse=True)
+    def class_setup(self):
+         self.lp = LoginPage(self.driver) # this is used to sent driver to page
+         self.hp = HomePage(self.driver)
+         self.add_modal = Add_model(self.driver)
 
+    def login(self):
+        self.lp.login("robyn.hills@sematree.com", "*Welcome&Tech2022")
+        self.hp.click_menu_bar()
+        self.hp.navigate_to("Administration", "Categories", "Sample Types")
+
+    def test_01_log(self):
+        self.login()
+
+    # @file_data("/home/chris/Desktop/automation/DDT-method/test_data/test_add_data.json")
+    # @file_data("/home/chris/Desktop/automation/DDT-method/test_data/test_add_data.yaml")
+    @data(*ut.read_data_from_excel("/home/chris/Desktop/automation/DDT-method/test_data/demo_add_data.xlsx","Sheet1"))
+    @unpack
+    def test_02_add_btn(self,name, description, bussiness_code):
+        self.hp.click_add_button()
+        self.add_modal.add(name, description, bussiness_code)
+        self.add_modal.add_toaster()

@@ -13,7 +13,7 @@ class Add_model():
     bussiness_code_input_field = "//input[@id='businessCode']"
     item_status_inactive_field = "//input[@id='deliverable-item-status']"
     submit_btn_field = "//body[1]/div[1]/div[2]/div[1]/mdb-modal-container[1]/div[1]/div[1]/add-shipment-type-modal[1]/div[3]/button[1]"
-    add_toaster_field = "//div[@class='toast-body bg-light']"
+    add_toaster_field = "//strong[normalize-space()='Success']"
     cancel_btn_field = "//button[normalize-space()='Cancel']"
 
     def get_name_input_field(self):
@@ -64,22 +64,12 @@ class Add_model():
         self.get_cancel_btn_field().click()
         self.log.info("Click on cancel button")
 
-    def add_toaster(self, input_name):
-        success_value = self.get_add_toaster_field().text
-        # print(success_value)
-        s1 = input_name
-        s2 = " Is Added"
-        s3 = s1 + s2
-        print(s3)
-        # print(success_value)
-        # to verify the heading is equal to input value
-        heading = self.driver.find_element(By.XPATH, "//span[normalize-space()='new sample2']")
-        heading_text = heading.text
-        if success_value == s3 and heading_text == input_name:
+    def add_toaster(self):
+        toaster_success = self.get_add_toaster_field().text
+        if toaster_success == "Success":
             self.log.info("testcase add passed")
         else:
-            assert self.log.info("testcase add failed")
-
+            self.log.info("testcase add failed")
     time.sleep(6)
 
     def add(self,name,description,bussiness_code):

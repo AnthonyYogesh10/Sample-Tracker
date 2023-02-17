@@ -1,24 +1,36 @@
-07-Feb-23 12:39:11 LoginPage INFO:Assign robyn.hills@sematree.com into username
-07-Feb-23 12:39:11 LoginPage INFO:Assign *Welcome&Tech2022 into password
-07-Feb-23 12:39:12 LoginPage INFO:Click on login button
-07-Feb-23 12:39:19 HomePage INFO:Click on menubar
-07-Feb-23 12:39:22 HomePage INFO:Click on side_nav
-07-Feb-23 12:39:26 HomePage INFO:Click on administration
-07-Feb-23 12:39:29 HomePage INFO:Click on category
-07-Feb-23 12:39:32 HomePage INFO:Click on add button
-07-Feb-23 12:39:35 Add_model INFO:Assign new sample2 into name
-07-Feb-23 12:39:35 Add_model INFO:Assign added for testing into description
-07-Feb-23 12:39:36 Add_model INFO:Assign 8838yo203 into bussiness code
-07-Feb-23 12:39:39 Add_model INFO:Click on submit button
-07-Feb-23 12:39:44 Add_model INFO:testcase add passed
-07-Feb-23 12:39:44 HomePage INFO:Assign new sample2 into search input
-07-Feb-23 12:39:47 HomePage INFO:Click on search button
-07-Feb-23 12:39:50 HomePage INFO:Click on modify
-07-Feb-23 12:39:55 Modify_page INFO:Assign 22 into name
-07-Feb-23 12:39:56 Modify_page INFO:Assign 22 into description
-07-Feb-23 12:39:56 Modify_page INFO:Assign 22 into bussiness code
-07-Feb-23 12:39:59 Modify_page INFO:Click on save button
-07-Feb-23 12:40:02 Modify_page INFO:testcase modify passed
-07-Feb-23 12:40:02 HomePage INFO:Click on delete button
-07-Feb-23 12:40:05 Delete_page INFO:Click on confirm button
-07-Feb-23 12:40:10 Delete_page INFO:testcase delete passed
+17-Feb-23 15:19:58 LoginPage INFO:Assign robyn.hills@sematree.com into username
+17-Feb-23 15:19:58 LoginPage INFO:Assign *Welcome&Tech2022 into password
+17-Feb-23 15:19:59 LoginPage INFO:Click on login button
+17-Feb-23 15:20:06 HomePage INFO:Click on menubar
+17-Feb-23 15:20:10 HomePage INFO:Click on side_nav
+17-Feb-23 15:20:13 HomePage INFO:Click on administration
+17-Feb-23 15:20:16 HomePage INFO:Click on category
+17-Feb-23 15:20:19 HomePage INFO:Click on add button
+17-Feb-23 15:20:23 Add_model INFO:Assign Sample_1 into name
+17-Feb-23 15:20:23 Add_model INFO:Assign New sample added into description
+17-Feb-23 15:20:23 Add_model INFO:Assign 8838A into bussiness code
+17-Feb-23 15:20:26 Add_model INFO:Click on submit button
+17-Feb-23 15:20:31 Add_model INFO:testcase add passed
+17-Feb-23 15:20:31 HomePage INFO:Click on add button
+17-Feb-23 15:20:34 Add_model INFO:Assign Sample_2 into name
+17-Feb-23 15:20:35 Add_model INFO:Assign New sample added2 into description
+17-Feb-23 15:20:35 Add_model INFO:Assign 8838A2 into bussiness code
+17-Feb-23 15:20:38 Add_model INFO:Click on submit button
+17-Feb-23 15:20:43 Add_model INFO:testcase add passed
+17-Feb-23 15:20:43 HomePage INFO:Click on add button
+17-Feb-23 15:20:46 Add_model INFO:Assign Sample_3 into name
+17-Feb-23 15:20:46 Add_model INFO:Assign New sample added3 into description
+17-Feb-23 15:20:47 Add_model INFO:Assign 8838A3 into bussiness code
+17-Feb-23 15:20:50 Add_model INFO:Click on submit button
+17-Feb-23 15:20:55 Add_model INFO:testcase add passed
+17-Feb-23 15:20:55 HomePage INFO:Assign Sample_1 into search input
+17-Feb-23 15:20:58 HomePage INFO:Click on search button
+17-Feb-23 15:21:01 HomePage INFO:Click on modify
+17-Feb-23 15:21:06 Modify_page INFO:Assign sampleTracker_modify into name
+17-Feb-23 15:21:07 Modify_page INFO:Assign Modified data into description
+17-Feb-23 15:21:07 Modify_page INFO:Assign 810Ybecse into bussiness code
+17-Feb-23 15:21:10 Modify_page INFO:Click on save button
+17-Feb-23 15:21:13 Modify_page INFO:testcase modify passed
+17-Feb-23 15:21:13 HomePage INFO:Click on delete button
+17-Feb-23 15:21:16 Delete_page INFO:Click on confirm button
+17-Feb-23 15:21:21 Delete_page INFO:testcase delete passed
