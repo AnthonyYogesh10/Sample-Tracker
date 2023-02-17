@@ -40,7 +40,7 @@ class Test_AllCrud(unittest.TestCase):
          self.add_modal.add(name,description,bussiness_code)
          self.add_modal.add_toaster()
 
-     @data("Sample_1")
+     @data("Sample")
      def test_03_search(self,value):
          self.hp.enter_search_input(value)
          self.hp.click_search_button()
