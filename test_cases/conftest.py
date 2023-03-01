@@ -32,6 +32,7 @@ def pytest_html_report_title(report):
 #modifying  pytest-html environment
 def pytest_configure(config):
     global driver
+    global size
     py_version = python_version()
     capabilities = driver.capabilities
     browser_name = capabilities.get('browserName')
@@ -51,16 +52,17 @@ def pytest_configure(config):
 #Changing table header pytest-html
 def pytest_html_results_table_header(cells):
     del cells[:]
-    # cells.insert(0, html.th("S.no"))
-    cells.insert(0, html.th("Time"))
-    cells.insert(1, html.th("Test Name"))
-    cells.insert(2, html.th('Test Case'))
-    cells.insert(3, html.th('Result'))
-    cells.insert(4, html.th('Duration', col='time'))
-    cells.insert(5, html.th('Url'))
-    cells.insert(6, html.th('Browser name'))
-    # cells.insert(8, html.th('Browser version'))
-    # cells.insert(9, html.th('Screen Size'))
+    cells.insert(0, html.th("S.no"))
+    cells.insert(1, html.th("Time"))
+    cells.insert(2, html.th("Test Name"))
+    cells.insert(3, html.th('Test Case'))
+    cells.insert(4, html.th('Result'))
+    cells.insert(5, html.th('Duration', col='time'))
+    cells.insert(6, html.th('Url'))
+    cells.insert(7, html.th('Browser name'))
+    cells.insert(8, html.th('Browser version'))
+    cells.insert(9, html.th('Screen Size'))
+    cells.insert(10, html.th('last one'))
     cells.pop()
 
 # for take screenshot in pytest html
@@ -79,12 +81,11 @@ def pytest_runtest_makereport(item):
     report.test_name = class_name
     report.test_case = method_name
 
-
     if report.when == "call":
         extra = getattr(report, "extra", [])
         xfail = hasattr(report, "wasxfail")
         if(report.failed and not xfail) or (report.passed):
-            # only add additional html on failure
+            # only add additional html on log area
             report_directory = os.path.dirname(item.config.option.htmlpath)
             file_name = str(int(round(time.time() * 1000))) + ".png"
             # file_name = report.nodeid.replace("::", "_") + ".png"
@@ -97,32 +98,45 @@ def pytest_runtest_makereport(item):
              extra.append(pytest_html.extras.html(html))
         report.extra = extra
 
-
+serial_no = 0
 #Change table row  pytest-html
 def pytest_html_results_table_row(report, cells):
+    global driver
     del cells[:]
     #for get serial no from pytest html
-    # cells.insert(0, html.td('1'))
+    global serial_no
 
-    cells.insert(0, html.td(datetime.strftime(datetime.now(),"%Y-%m-%d %H:%M:%S"), class_='col-time'))
-    cells.insert(1, html.td(report.test_name))
-    cells.insert(2, html.td(report.test_case))
+    if report.when == "call":
+        serial_no += 1
+    cells.insert(0, html.td(serial_no))
+    cells.insert(1, html.td(datetime.strftime(datetime.now(),"%Y-%m-%d %H:%M:%S"), class_='col-time'))
+    cells.insert(2, html.td(report.test_name))
+    cells.insert(3, html.td(report.test_case))
+    print(report.test_case)
     # this is used to display result
     if report.passed:
-       cells.insert(3, html.td('Passed',  class_='col-result'))
+       cells.insert(4, html.td('Passed',  class_='col-result'))
        cells.append(html.td(html.a('show details', href=f"javascript:show_test_detail('{report.nodeid}')")))
     elif report.failed:
-       cells.insert(3, html.td('Failed',  class_='col-result'))
+       cells.insert(4, html.td('Failed',  class_='col-result'))
        cells.append(html.td(html.a('show details', href=f"javascript:show_test_detail('{report.nodeid}')")))
 
     # for duration in sec
     duration = '{:.2f}s'.format(report.duration)
-    cells.insert(4, html.td(duration, class_='col-time'))
+    cells.insert(5, html.td(duration, class_='col-time'))
     # for insert url on report
-    url = "https://keycloak-gbs-dev.trutesta.io/auth/realms/Intertek/protocol/openid-connect/auth?client_id=trutesta&redirect_uri=https%3A%2F%2Fintertek-dev.trutesta.io%2Ftrudashboards.mdb5%2F&state=408614e4-52c1-48fc-af72-8e010ad91b89&response_mode=fragment&response_type=code&scope=openid&nonce=cf436605-9b3e-4ed2-86a7-e4ef4c6fbb24"
-    cells.insert(5, html.td(html.a('URL',href = url,target ="_blank") ))
+    url = "https://keycloak-gbs-dev.trutesta.io/auth/realms/Intertek/protocol/openid-connect/auth?client_id=trutesta&redirect_uri=https%3A%2F%2Fintertek-dev.trutesta.io%2Ftrusamples.mdb5%2F&state=eebe6991-1ec6-4f06-8534-81d5a6fa6355&response_mode=fragment&response_type=code&scope=openid&nonce=10dcc108-fc2c-4ef7-8ae7-68a89c803e99"
+    cells.insert(6, html.td(html.a('URL',href = url,target ="_blank") ))
+    #for browser name
+    capabilities = driver.capabilities
+    browser_name = capabilities.get('browserName')
+    browser_name_in_cap = browser_name.capitalize()
+    cells.insert(7, html.td(browser_name_in_cap))
+    # for borowser version
+    browser_version = capabilities.get('browserVersion')
+    cells.insert(8, html.td(browser_version))
+    #for screen size
+    global size
+    cells.insert(9, html.td(size))
     cells.pop()
-
-
-
 
