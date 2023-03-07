@@ -39,7 +39,7 @@ def pytest_configure(config):
     global size
     py_version = python_version()
     capabilities = driver.capabilities
-    browser_name = capabilities.get('browserName')
+    browser_name = capabilities.get('browserName').capitalize()
     browser_version = capabilities.get('browserVersion')
     plattform_name = capabilities.get('platformName')
     display_size = driver.get_window_size("current")
@@ -54,6 +54,14 @@ def pytest_configure(config):
     }
 
 
+# def pytest_html_head():
+#     return [
+#         html.script(
+#             src="https://cdnjs.cloudflare.com/ajax/libs/sortable/0.8.0/js/sortable.min.js",
+#             type="text/javascript",
+#         ),
+#     ]
+
 # Changing table header pytest-html
 def pytest_html_results_table_header(cells):
     del cells[:]
@@ -61,8 +69,8 @@ def pytest_html_results_table_header(cells):
     cells.insert(1, html.th("Time"))
     cells.insert(2, html.th("Test Name"))
     cells.insert(3, html.th('Test Case'))
-    cells.insert(4, html.th('Result', class_="sortable"))
-    cells.insert(5, html.th('Duration', col='time', class_="sortable"))
+    cells.insert(4, html.th('Result'))
+    cells.insert(5, html.th('Duration', col='time'))
     cells.insert(6, html.th('Url'))
     cells.insert(7, html.th('Browser name'))
     cells.insert(8, html.th('Browser version'))
@@ -94,8 +102,14 @@ def pytest_runtest_makereport(item):
             # only add additional html on log area
             report_directory = os.path.dirname(item.config.option.htmlpath)
             screenshot_folder = 'screenshots'
+            test_name = report.test_name
+            path_test_name_folder = os.path.join(report_directory, screenshot_folder, test_name)
+            time.sleep(2)
+            os.makedirs(path_test_name_folder, exist_ok=True)
+            test_name_folder = path_test_name_folder
+            print(test_name_folder)
             file_name = str(int(round(time.time() * 1000))) + ".png"
-            destination_file = os.path.join(report_directory,screenshot_folder, file_name)
+            destination_file = os.path.join(report_directory, screenshot_folder, test_name, file_name)
             print("destination file: ", destination_file)
             time.sleep(2)
             driver.save_screenshot(destination_file)
